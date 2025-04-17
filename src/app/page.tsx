@@ -52,11 +52,6 @@ Key Features:
 ];
 
 export default function Home() {
-  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    window.location.href = "mailto:ps6723187@gmail.com";
-  };
-
   return (
     <div className="container py-8 space-y-16">
       {/* Hero Section */}
@@ -125,7 +120,7 @@ export default function Home() {
                   <span>const</span>
                   <span className="text-blue-500">developer</span>
                   <span>=</span>
-                  <span className="text-green-500">'Piyush Singh'</span>
+                  <span className="text-green-500">&apos;Piyush Singh&apos;</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-primary/50">2</span>
@@ -135,15 +130,15 @@ export default function Home() {
                   <span className="text-yellow-500">[</span>
                 </div>
                 <div className="flex items-center gap-2 pl-8">
-                  <span className="text-green-500">'React'</span>
+                  <span className="text-green-500">&apos;React&apos;</span>
                   <span className="text-yellow-500">,</span>
                 </div>
                 <div className="flex items-center gap-2 pl-8">
-                  <span className="text-green-500">'Node.js'</span>
+                  <span className="text-green-500">&apos;Node.js&apos;</span>
                   <span className="text-yellow-500">,</span>
                 </div>
                 <div className="flex items-center gap-2 pl-8">
-                  <span className="text-green-500">'TypeScript'</span>
+                  <span className="text-green-500">&apos;TypeScript&apos;</span>
                   <span className="text-yellow-500">,</span>
                 </div>
                 <div className="flex items-center gap-2">
