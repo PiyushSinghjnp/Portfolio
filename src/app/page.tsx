@@ -172,7 +172,7 @@ export default function Home() {
             </TabsList>
             <TabsContent value="programming" className="mt-6">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {["Java", "JavaScript", "TypeScript", "Python", "C++", "PHP", "SQL"].map((skill, index) => (
+                {["Java", "JavaScript", "TypeScript", "Python", "C++", "PHP", "SQL"].map((skill) => (
                   <SlideIn key={skill}>
                     <Card className="group hover:border-primary/50 transition-colors">
                       <CardHeader>
@@ -260,6 +260,10 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
             Featured Projects
           </h2>
+          <p className="text-muted-foreground max-w-3xl mb-6">
+            Here are some of my recent projects showcasing my skills in full-stack development.
+            Each project demonstrates different technologies and problem-solving approaches.
+          </p>
         </FadeIn>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project) => (
@@ -267,15 +271,18 @@ export default function Home() {
               <Dialog>
                 <DialogTrigger asChild>
                   <Card className="group hover:border-primary/50 transition-all hover:shadow-lg cursor-pointer h-[200px] flex flex-col">
+                    {/* Reduced height from 250px to 200px */}
                     <CardHeader className="pb-2">
                       <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
                       <CardDescription>{project.shortDesc}</CardDescription>
                     </CardHeader>
-                    <CardContent className="flex-1 flex flex-col justify-between pt-0">
-                      <p className="text-muted-foreground mb-2 line-clamp-2">
-                        {project.longDesc.split('\n')[0]}
+                    <CardContent className="flex-1 flex flex-col justify-between">
+                      <p className="text-sm text-muted-foreground line-clamp-3">
+                        {project.title === "WalletMate" 
+                          ? "A feature-rich payment wallet application enabling seamless money transfers and wallet management, processing over 1000+ transactions per month."
+                          : "A real-time chat application supporting over 1,000 concurrent users with minimal latency, featuring Socket.io for real-time messaging."}
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 mt-4">
                         {project.tech.slice(0, 4).map((tech) => (
                           <span key={tech} className="px-2 py-1 bg-secondary rounded-md text-sm">
                             {tech}
@@ -297,8 +304,8 @@ export default function Home() {
                   </DialogHeader>
                   <div className="py-4 space-y-4">
                     <div className="space-y-4">
-                      {project.longDesc.split('\n').map((paragraph, index) => (
-                        <p key={index} className="text-muted-foreground">
+                      {project.longDesc.split('\n').map((paragraph) => (
+                        <p key={paragraph} className="text-muted-foreground">
                           {paragraph.trim()}
                         </p>
                       ))}
@@ -348,7 +355,7 @@ export default function Home() {
                   Get in Touch
                 </CardTitle>
                 <CardDescription>
-                  I'm always open to new opportunities and collaborations
+                  I&apos;m always open to new opportunities and collaborations
                 </CardDescription>
               </CardHeader>
               <CardContent>
