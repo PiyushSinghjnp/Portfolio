@@ -14,6 +14,7 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog"
+import { motion } from "framer-motion"
 
 const projects = [
   {
@@ -270,42 +271,47 @@ export default function Home() {
             <SlideIn key={project.title}>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Card className="group hover:border-primary/50 transition-all hover:shadow-lg cursor-pointer h-[200px] flex flex-col">
-                    {/* Reduced height from 250px to 200px */}
-                    <CardHeader className="pb-2">
-                      <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                      <CardDescription>{project.shortDesc}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-1 flex flex-col justify-between">
-                      <p className="text-sm text-muted-foreground line-clamp-3">
-                        {project.title === "WalletMate" 
-                          ? "A feature-rich payment wallet application enabling seamless money transfers and wallet management, processing over 1000+ transactions per month."
-                          : "A real-time chat application supporting over 1,000 concurrent users with minimal latency, featuring Socket.io for real-time messaging."}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {project.tech.slice(0, 4).map((tech) => (
-                          <span key={tech} className="px-2 py-1 bg-secondary rounded-md text-sm">
-                            {tech}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="px-2 py-1 bg-secondary rounded-md text-sm">
-                            +{project.tech.length - 4} more
-                          </span>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    className="h-full"
+                  >
+                    <Card className="group hover:border-primary/50 transition-all hover:shadow-lg cursor-pointer h-[250px] flex flex-col h-full">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="group-hover:text-primary transition-colors">{project.title}</CardTitle>
+                        <CardDescription>{project.shortDesc}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="flex-1 flex flex-col justify-between">
+                        <p className="text-sm text-muted-foreground line-clamp-3">
+                          {project.title === "WalletMate" 
+                            ? "A feature-rich payment wallet application enabling seamless money transfers and wallet management, processing over 1000+ transactions per month."
+                            : "A real-time chat application supporting over 1,000 concurrent users with minimal latency, featuring Socket.io for real-time messaging."}
+                        </p>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {project.tech.slice(0, 4).map((tech) => (
+                            <span key={tech} className="px-2 py-1 bg-secondary rounded-md text-sm">
+                              {tech}
+                            </span>
+                          ))}
+                          {project.tech.length > 4 && (
+                            <span className="px-2 py-1 bg-secondary rounded-md text-sm">
+                              +{project.tech.length - 4} more
+                            </span>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[625px] max-h-[80vh] overflow-y-auto [&>button]:hidden">
-                  <DialogHeader className="flex flex-col sticky top-0 bg-background pb-4 border-b">
+                  <DialogHeader className="flex flex-col sticky top-0 bg-background/80 backdrop-blur-sm pb-4 border-b z-10">
                     <DialogTitle className="text-2xl">{project.title}</DialogTitle>
                     <DialogDescription className="text-lg">{project.shortDesc}</DialogDescription>
                   </DialogHeader>
                   <div className="py-4 space-y-4">
                     <div className="space-y-4">
-                      {project.longDesc.split('\n').map((paragraph) => (
-                        <p key={paragraph} className="text-muted-foreground">
+                      {project.longDesc.split('\n').map((paragraph, index) => (
+                        <p key={index} className="text-muted-foreground">
                           {paragraph.trim()}
                         </p>
                       ))}
@@ -318,7 +324,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <div className="sticky bottom-0 pt-4 flex justify-end gap-3 bg-background border-t">
+                  <div className="sticky bottom-0 pt-4 flex justify-end gap-3 bg-background/80 backdrop-blur-sm border-t z-10">
                     <DialogClose asChild>
                       <Button variant="outline" className="gap-2">
                         <X className="w-4 h-4" />
@@ -328,8 +334,8 @@ export default function Home() {
                     <Button asChild>
                       <a
                         href={project.gitLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
                         className="flex items-center gap-2"
                       >
                         <Github className="w-4 h-4" />
@@ -410,8 +416,8 @@ export default function Home() {
                   <Button variant="outline" asChild className="group">
                     <a 
                       href="https://www.linkedin.com/in/piyush-singh-211313357/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
                       <Linkedin className="w-4 h-4" />
@@ -422,8 +428,8 @@ export default function Home() {
                   <Button variant="outline" asChild className="group">
                     <a 
                       href="https://github.com/PiyushSinghjnp" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
                       <Github className="w-4 h-4" />
@@ -440,5 +446,7 @@ export default function Home() {
     </div>
   )
 }
+
+
 
 

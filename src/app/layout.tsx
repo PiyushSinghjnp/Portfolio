@@ -27,7 +27,25 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="min-h-screen">
-            {children}
+            <section id="hero" /* ...props... */ >
+              {/* ... hero content ... */}
+            </section>
+
+            <section id="about" className="py-16 text-center max-w-3xl mx-auto">
+              {/* ... about content ... */}
+            </section>
+
+            <section id="skills" className="py-16">
+              {/* ... skills content (bento grid) ... */}
+            </section>
+
+            <section id="projects" className="py-16">
+              {/* ... projects content ... */}
+            </section>
+
+            <section id="contact" className="py-16">
+              {/* ... contact content ... */}
+            </section>
           </main>
         </ThemeProvider>
       </body>
