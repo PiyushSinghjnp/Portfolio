@@ -310,8 +310,8 @@ export default function Home() {
                   </DialogHeader>
                   <div className="py-4 space-y-4">
                     <div className="space-y-4">
-                      {project.longDesc.split('\n').map((paragraph, index) => (
-                        <p key={index} className="text-muted-foreground">
+                      {project.longDesc.split('\n').map((paragraph) => (
+                        <p key={paragraph.trim()} className="text-muted-foreground">
                           {paragraph.trim()}
                         </p>
                       ))}
