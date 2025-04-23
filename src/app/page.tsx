@@ -68,20 +68,20 @@ export default function Home() {
 
             {/* Left Content */}
             <div className="max-w-2xl space-y-6 ml-4 md:ml-8 lg:ml-16">
-              <FadeIn>
+              {/* <FadeIn> */}
                 <div className="relative">
                   <h1 className="text-4xl font-bold tracking-tight lg:text-6xl bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent leading-tight py-1">
                     Piyush Singh
                   </h1>
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 blur-xl -z-10" />
                 </div>
-              </FadeIn>
-              <SlideIn>
+              {/* </FadeIn> */}
+              {/* <SlideIn> */}
                 <p className="text-lg text-muted-foreground leading-normal">
                   Full-Stack Developer specializing in Node.js, React, and modern web technologies
                 </p>
-              </SlideIn>
-              <ScaleIn>
+              {/* </SlideIn> */}
+              {/* <ScaleIn> */}
                 <div className="flex gap-4">
                   <Button asChild className="group">
                     <a href="#projects" className="flex items-center gap-2">
@@ -99,7 +99,7 @@ export default function Home() {
                     </a>
                   </Button>
                 </div>
-              </ScaleIn>
+              {/* </ScaleIn> */}
             </div>
 
             {/* Right Animated Element */}
@@ -161,12 +161,12 @@ export default function Home() {
 
           {/* Skills Section */}
           <section id="skills" className="scroll-mt-16 mx-4 md:mx-8 lg:mx-16">
-            <FadeIn>
+            {/* <FadeIn> */}
               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
                 Skills & Technologies
               </h2>
-            </FadeIn>
-            <ScaleIn>
+            {/* </FadeIn> */}
+            {/* <ScaleIn> */}
               <Tabs defaultValue="programming" className="w-full">
                 <TabsList className="grid w-full grid-cols-4">
                   <TabsTrigger value="programming">Programming Languages</TabsTrigger>
@@ -177,13 +177,13 @@ export default function Home() {
                 <TabsContent value="programming" className="mt-6">
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {["Java", "JavaScript", "TypeScript", "Python", "C++", "PHP", "SQL"].map((skill) => (
-                      <SlideIn key={skill}>
-                        <Card className="group hover:border-primary/50 transition-colors">
+                      // <SlideIn key={skill}>
+                        <Card key={skill} className="group hover:border-primary/50 transition-colors">
                           <CardHeader>
                             <CardTitle className="text-lg group-hover:text-primary transition-colors">{skill}</CardTitle>
                           </CardHeader>
                         </Card>
-                      </SlideIn>
+                      // </SlideIn>
                     ))}
                   </div>
                 </TabsContent>
@@ -199,14 +199,14 @@ export default function Home() {
                       { name: "Prisma", desc: "ORM" },
                       { name: "Redis", desc: "In-Memory DB" }
                     ].map((framework) => (
-                      <SlideIn key={framework.name}>
-                        <Card className="group hover:border-primary/50 transition-colors">
+                      // <SlideIn key={framework.name}>
+                        <Card key={framework.name} className="group hover:border-primary/50 transition-colors">
                           <CardHeader>
                             <CardTitle className="text-lg group-hover:text-primary transition-colors">{framework.name}</CardTitle>
                             <CardDescription>{framework.desc}</CardDescription>
                           </CardHeader>
                         </Card>
-                      </SlideIn>
+                      // </SlideIn>
                     ))}
                   </div>
                 </TabsContent>
@@ -222,14 +222,14 @@ export default function Home() {
                       { name: "Framer Motion", desc: "Animations" },
                       { name: "JWT", desc: "Authentication" }
                     ].map((lib) => (
-                      <SlideIn key={lib.name}>
-                        <Card className="group hover:border-primary/50 transition-colors">
+                      // <SlideIn key={lib.name}>
+                        <Card key={lib.name} className="group hover:border-primary/50 transition-colors">
                           <CardHeader>
                             <CardTitle className="text-lg group-hover:text-primary transition-colors">{lib.name}</CardTitle>
                             <CardDescription>{lib.desc}</CardDescription>
                           </CardHeader>
                         </Card>
-                      </SlideIn>
+                      // </SlideIn>
                     ))}
                   </div>
                 </TabsContent>
@@ -243,24 +243,24 @@ export default function Home() {
                       { name: "Serverless", desc: "Architecture" },
                       { name: "Cloudflare", desc: "CDN/Security" }
                     ].map((tool) => (
-                      <SlideIn key={tool.name}>
-                        <Card className="group hover:border-primary/50 transition-colors">
+                      // <SlideIn key={tool.name}>
+                        <Card key={tool.name} className="group hover:border-primary/50 transition-colors">
                           <CardHeader>
                             <CardTitle className="text-lg group-hover:text-primary transition-colors">{tool.name}</CardTitle>
                             <CardDescription>{tool.desc}</CardDescription>
                           </CardHeader>
                         </Card>
-                      </SlideIn>
+                      // </SlideIn>
                     ))}
                   </div>
                 </TabsContent>
               </Tabs>
-            </ScaleIn>
+            {/* </ScaleIn> */}
           </section>
 
           {/* Projects Section */}
           <section id="projects" className="scroll-mt-16 mx-4 md:mx-8 lg:mx-16">
-            <FadeIn>
+            {/* <FadeIn> */}
               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
                 Featured Projects
               </h2>
@@ -268,11 +268,11 @@ export default function Home() {
                 Here are some of my recent projects showcasing my skills in full-stack development.
                 Each project demonstrates different technologies and problem-solving approaches.
               </p>
-            </FadeIn>
+            {/* </FadeIn> */}
             <div className="grid md:grid-cols-2 gap-6">
               {projects.map((project) => (
-                <SlideIn key={project.title}>
-                  <Dialog>
+                // <SlideIn key={project.title}>
+                  <Dialog key={project.title}>
                     <DialogTrigger asChild>
                       <motion.div
                         whileHover={{ scale: 1.03 }}
@@ -349,14 +349,14 @@ export default function Home() {
                       </div>
                     </DialogContent>
                   </Dialog>
-                </SlideIn>
+                // </SlideIn>
               ))}
             </div>
           </section>
 
           {/* Contact Section */}
           <section id="contact" className="scroll-mt-16 mx-4 md:mx-8 lg:mx-16">
-            <FadeIn>
+            {/* <FadeIn> */}
               <div className="max-w-2xl mx-auto">
                 <Card className="overflow-hidden">
                   <CardHeader>
@@ -444,7 +444,7 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </div>
-            </FadeIn>
+            {/* </FadeIn> */}
           </section>
         </>
     </div>
